@@ -40,7 +40,7 @@
         
         <!-- Recognize Activity -->
         <activity
-            android:name="ngapham.com.vnocr.RecognizeActivity"
+            android:name="ngapham.com.vnocr.RecognizeFragment"
             android:label="@string/app_name" 
             android:parentActivityName="ngapham.com.vnocr.MainActivity" >
         </activity>
