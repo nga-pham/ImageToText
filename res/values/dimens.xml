@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    
+    <!-- dimen -->
+    <dimen name="imagebutton_framelayout_width">60dp</dimen>
+    <dimen name="imagebutton_image_width">20dp</dimen>
+    <dimen name="imagebutton_image_height">20dp</dimen>
+    <dimen name="imagebutton_image_marginTop">8dp</dimen>
+    <dimen name="imagebutton_textView_marginTop">31dp</dimen>
+    <dimen name="imagebutton_textView_textSize">10sp</dimen>
+    
+    <dimen name="recognize_result">20dp</dimen>
+    
+    <!-- color -->
+    <color name="imagebutton_textView_textColor">#FFF</color>
+
+</resources>

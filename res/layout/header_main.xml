@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:orientation="horizontal"
+    
+    android:background="@layout/header_gradient" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="@dimen/imagebutton_framelayout_width"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btnPickImage"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/imgPickImage"
+                android:layout_width="@dimen/imagebutton_image_width"
+                android:layout_height="@dimen/imagebutton_image_height"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/photo" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/imagebutton_framelayout_width"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btnChooseLanguage"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/imgChooseLanguage"
+                android:layout_width="@dimen/imagebutton_image_width"
+                android:layout_height="@dimen/imagebutton_image_height"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/language" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="right" >
+
+            <FrameLayout
+                android:layout_width="@dimen/imagebutton_framelayout_width"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp" >
+
+                <Button
+                    android:id="@+id/btnRecognize"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/transparent" />
+
+                <ImageView
+                    android:id="@+id/imgRecognize"
+                    android:layout_width="@dimen/imagebutton_image_width"
+                    android:layout_height="@dimen/imagebutton_image_height"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/file" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="@dimen/imagebutton_framelayout_width"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp" >
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent" />
+
+                <ImageView
+                    android:id="@+id/imgLogout"
+                    android:layout_width="@dimen/imagebutton_image_width"
+                    android:layout_height="@dimen/imagebutton_image_height"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logout" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

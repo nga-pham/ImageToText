@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="@layout/header_gradient"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:layout_width="@dimen/imagebutton_framelayout_width"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@android:color/transparent" />
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/imagebutton_image_width"
+            android:layout_height="@dimen/imagebutton_image_height"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:scaleType="fitXY"
+            android:src="@drawable/arrow_right" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:layout_width="@dimen/imagebutton_framelayout_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="0dp" >
+
+            <Button
+                android:id="@+id/btnSaveToClipboard"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:id="@+id/imgSaveToClipboard"
+                android:layout_width="@dimen/imagebutton_image_width"
+                android:layout_height="@dimen/imagebutton_image_height"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/clipboard" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

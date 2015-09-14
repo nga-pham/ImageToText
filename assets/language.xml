@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languages>
+    <language>
+        <name>English</name>
+        <code>eng</code>
+    </language>
+    <language>
+        <name>Spanish</name>
+        <code>spa</code>
+    </language>
+    <language>
+        <name>German</name>
+        <code>deu</code>
+    </language>
+    <language>
+        <name>Vietnamese</name>
+        <code>vie</code>
+    </language>
+</languages>
