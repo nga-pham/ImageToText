@@ -2,25 +2,27 @@ package ngapham.com.vnocr;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
 
-public class RecognizeFragment extends Fragment {
+public class RecognizeActivity extends Activity {
 	private ProgressDialog dialogLoading;
 	// EditText to store result
 	private EditText txtResult;
@@ -34,18 +36,19 @@ public class RecognizeFragment extends Fragment {
 	private static final String TAG = "RecognizeActivity";
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		
-		View rootView = inflater.inflate(R.layout.fragment_recognize, container, false);
-		
-		initControls(rootView);
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_recognize);
 
+		//Khoi tao cac instance
+		txtResult = (EditText) findViewById(R.id.txtResult);
+		btnBack = (Button) findViewById(R.id.btnBack);
+		btnSaveToClipboard = (Button) findViewById(R.id.btnSaveToClipboard);
 		recognizedText = new String();
 		ERROR = null;
 		
 		//Tao dialog loading
-		dialogLoading = ProgressDialog.show(this.getActivity(), "", getResources().getString(R.string.recognize_progressDialog));
+		dialogLoading = ProgressDialog.show(this, "", getResources().getString(R.string.recognize_progressDialog));
 		new LoadingTask().execute();
 		
 		//Back
@@ -53,7 +56,7 @@ public class RecognizeFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				getActivity().getFragmentManager().popBackStackImmediate();
+				finish();
 			}
 		});
 		
@@ -64,14 +67,14 @@ public class RecognizeFragment extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				if (recognizedText != null) {
-					ClipboardManager myClipboard = (ClipboardManager) getActivity().getSystemService(Activity.CLIPBOARD_SERVICE);
+					ClipboardManager myClipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 					ClipData clipdata = ClipData.newPlainText("text", recognizedText);
 					myClipboard.setPrimaryClip(clipdata);
 					
 					ClipData abc = myClipboard.getPrimaryClip();
 					ClipData.Item item = abc.getItemAt(0);
 					String text = item.getText().toString();
-					Toast toast = Toast.makeText(getActivity(), 
+					Toast toast = Toast.makeText(RecognizeActivity.this, 
 							"Text copied to clipboard", Toast.LENGTH_LONG);
 					toast.show();
 //					Log.i(TAG, "Text copied to clipboard.");
@@ -112,19 +115,23 @@ public class RecognizeFragment extends Fragment {
 			}
 		});*/
 		
-		return rootView;
+		// load advertisements
+		loadAds();
 	}
 
-	private void initControls(View v) {
-		//Khoi tao cac instance
-		txtResult = (EditText) v.findViewById(R.id.txtResult);
-		btnBack = (Button) v.findViewById(R.id.btnBack);
-		btnSaveToClipboard = (Button) v.findViewById(R.id.btnSaveToClipboard);
-	}
+	private void loadAds() {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		//Locate the Banner Ad in activity_main.xml
+		AdView adView = (AdView) findViewById(R.id.adView);
+
+		// Request for Ads
+		AdRequest adRequest = new AdRequest.Builder().build();
+
+		// Load ads into Banner Ads
+		adView.loadAd(adRequest);
+
+		// Set Smart Banner
+//		adView.setAdSize(AdSize.SMART_BANNER);
 	}
 
 	class LoadingTask extends AsyncTask<Void, Void, Void> {
@@ -132,7 +139,8 @@ public class RecognizeFragment extends Fragment {
 		@Override
 		protected Void doInBackground(Void... params) {
 			//Lay du lieu da truyen di
-			Bundle getData = getArguments();
+			Intent getDataIntent = getIntent();
+			Bundle getData = getDataIntent.getBundleExtra("data transporter");
 			String picturePath = getData.getString("picture path");
 			String language = getData.getString("language");
 			String dataPath = getData.getString("data path");
@@ -151,7 +159,7 @@ public class RecognizeFragment extends Fragment {
 			if (recognizedText.length() != 0 || null == ERROR) {
 				txtResult.setText(recognizedText);
 			} else {
-				Toast.makeText(getActivity(), ERROR, Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), ERROR, Toast.LENGTH_SHORT).show();
 			}
 //			super.onPostExecute(result);
 		}

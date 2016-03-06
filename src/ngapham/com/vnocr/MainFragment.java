@@ -305,18 +305,11 @@ public class MainFragment extends Fragment {
 			
 			RecognizeFragment recogFrament = new RecognizeFragment();
 			recogFrament.setArguments(args);
-			
+			/*
 			FragmentTransaction fTransaction = getActivity().getFragmentManager().beginTransaction();
 			fTransaction.addToBackStack(null);
 			fTransaction.replace(R.id.container, recogFrament);
-			fTransaction.commit();
-			/*Intent transferDataIntent = new Intent(this, RecognizeActivity.class);
-			Bundle transferData = new Bundle();
-			transferData.putString("picture path", picturePath);
-			transferData.putString("language", language);
-			transferData.putString("data path", dataPath);
-			transferDataIntent.putExtra("data transporter", transferData);
-			startActivity(transferDataIntent);*/
+			fTransaction.commit();*/
 		}
 	}
 }
