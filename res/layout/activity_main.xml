@@ -7,29 +7,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity" >
-    <include layout="@layout/header_main"/>
+
+    <!-- <include layout="@layout/header_main" /> -->
 
     <android.support.v7.widget.Toolbar
-   android:id="@+id/my_toolbar"
-   android:layout_width="match_parent"
-   android:layout_height="?attr/actionBarSize"
-   android:background="?attr/colorPrimary"
-   android:elevation="4dp"
-   android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-   app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-    <LinearLayout
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" >
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <ImageView
-            android:id="@+id/imgSource"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:src="@drawable/readme" />
-
-    </LinearLayout>
+    <!-- Main content view -->
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +37,6 @@
             ads:adSize="SMART_BANNER"
             ads:adUnitId="@string/banner_ad_unit_id" >
         </com.google.android.gms.ads.AdView>
-
     </LinearLayout>
 
 </LinearLayout>
