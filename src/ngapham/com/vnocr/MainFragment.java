@@ -305,11 +305,11 @@ public class MainFragment extends Fragment {
 			
 			RecognizeFragment recogFrament = new RecognizeFragment();
 			recogFrament.setArguments(args);
-			/*
+			
 			FragmentTransaction fTransaction = getActivity().getFragmentManager().beginTransaction();
 			fTransaction.addToBackStack(null);
-			fTransaction.replace(R.id.container, recogFrament);
-			fTransaction.commit();*/
+			fTransaction.replace(R.id.main_container, recogFrament);
+			fTransaction.commit();
 		}
 	}
 }
